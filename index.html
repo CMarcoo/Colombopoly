@@ -1,383 +1,407 @@
 <html lang="EN" xmlns="http://www.w3.org/1999/html">
+
 <head>
+    <!-- Primary Meta Tags -->
+    <title>Colombopoly</title>
+    <meta name="title" content="Colombopoly">
+    <meta name="description" content="Il gioco dell'anno.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://metatags.io/">
+    <meta property="og:title" content="Colombopoly">
+    <meta property="og:description" content="Il gioco dell'anno.">
+    <meta property="og:image"
+        content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://metatags.io/">
+    <meta property="twitter:title" content="Colombopoly">
+    <meta property="twitter:description" content="Il gioco dell'anno.">
+    <meta property="twitter:image"
+        content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
     <meta charset="UTF-8">
     <script type="text/javascript" src="codice-assurdo.js"></script>
     <link rel="stylesheet" href="colombopoly.css">
     <title>Colombopoly</title>
 </head>
+
 <body>
 
-<div class="dadi">
-    <h3 style="text-align: center">TIRA DUE DADI</h3>
-    <div class="dadi-text">
-        <button onclick='imposta_dadi()'>Tira Dadi</button>
-    </div>
-
-    <div class="dadi-text">
-        <label for="dado-1">
-            <textarea readonly id="dado-1" placeholder="Risultato primo dado..."></textarea>
-        </label>
-    </div>
-
-    <div class="dadi-text">
-        <label for="dado-2">
-            <textarea readonly id="dado-2" placeholder="Risultato secondo dado..."></textarea>
-        </label>
-    </div>
-
-    <div class="dadi-text">
-        <label>
-            <textarea readonly id="somma" placeholder="Somma risultato..."></textarea>
-        </label>
-    </div>
-</div>
-
-<div class="dadi">
-    <h3 style="text-align: center">I TUOI SOLDATI</h3>
-    <div class="dadi-text">
-        <label for="soldati">
-            <textarea readonly id="soldati">4250</textarea>
-        </label>
-    </div>
-    <div class="dadi-text">
-        <p style="font-size: 14px;">I soldati sono la tua fonte di potere, utilizzali per proseguire nel gioco!</p>
-    </div>
-</div>
-
-<div class="dadi">
-    <h3 style="text-align: center"> RESET GIOCO</h3>
-    <button id="reset" onclick="reset_gioco()"> Reset</button>
-    <div class="dadi-text">
-        <p>Premi qui per riavviare il gioco da capo!</p>
-    </div>
-</div>
-
-<div class="dadi">
-    <h3 style="text-align: center"> IL TUO TURNO</h3>
-    <div class="dadi-text">
-        <label for="turno">
-            <textarea readonly id="turno" style="width: 260px">1</textarea>
-        </label>
-        <p> Questo e' il tuo turno.</p>
-    </div>
-</div>
-
-<div class="table">
-    <div class="board">
-        <div class="center">
-            <div class="community-chest-deck">
-                <h2 class="label">Community Chest</h2>
-                <div class="deck"></div>
-            </div>
-            <h1 class="title">COLOMBOPOLY</h1>
-            <div class="chance-deck">
-                <h2 class="label">Chance</h2>
-                <div class="deck"></div>
-            </div>
+    <div class="dadi">
+        <h3 style="text-align: center">TIRA DUE DADI</h3>
+        <div class="dadi-text">
+            <button onclick='imposta_dadi()'>Tira Dadi</button>
         </div>
 
-        <div class="space corner go" id="1" onclick="info_casella(this.id)">
-            <div class="container">
-                <div class="instructions">Ricevi 200 Soldati</div>
-                <div class="go-word">Via</div>
-            </div>
-            <div class="arrow fa fa-long-arrow-left"></div>
+        <div class="dadi-text">
+            <label for="dado-1">
+                <textarea readonly id="dado-1" placeholder="Risultato primo dado..."></textarea>
+            </label>
         </div>
 
-        <div class="row horizontal-row bottom-row">
-            <div class="space property" onclick="info_casella(this.id)" id="10">
-                <div class="container">
-                    <div class="color-bar light-blue"></div>
-                    <div class="name" id="p-10">Connecticut Avenue</div>
-                    <div class="price">PRICE $120</div>
-                </div>
-            </div>
-            <div class="space property" id="9" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar light-blue"></div>
-                    <div class="name" id="p-9">Vermont Avenue</div>
-                    <div class="price">Prezzo $100</div>
-                </div>
-            </div>
-            <div class="space chance" id="8" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-8">Chance</div>
-                    <i class="drawing fa fa-question"></i>
-                </div>
-            </div>
-            <div class="space property" id="7" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar light-blue"></div>
-                    <div class="name" id="p-7">Oriental Avenue</div>
-                    <div class="price">Prezzo $100</div>
-                </div>
-            </div>
-            <div class="space railroad" id="6" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-6">Reading Railroad</div>
-                    <i class="drawing fa fa-subway"></i>
-                    <div class="price">Prezzo $200</div>
-                </div>
-            </div>
-            <div class="space fee income-tax" id="5" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-5">Income Tax</div>
-                    <div class="diamond"></div>
-                    <div class="instructions">Pay 10%<br>or<br>$200</div>
-                </div>
-            </div>
-            <div class="space property" id="4" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar dark-purple"></div>
-                    <div class="name" id="p-4">Baltic Avenue</div>
-                    <div class="price">Prezzo $50</div>
-                </div>
-            </div>
-            <div class="space community-chest" id="3" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-3">Community Chest</div>
-                    <i class="drawing fa fa-cube"></i>
-                    <div class="instructions">Follow instructions on top card</div>
-                </div>
-            </div>
-            <div class="space property" id="2" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar dark-purple"></div>
-                    <div class="name three-line-name" id="p-2"> Mario Avenue</div>
-                    <div class="price">Prezzo $50</div>
-                </div>
-            </div>
+        <div class="dadi-text">
+            <label for="dado-2">
+                <textarea readonly id="dado-2" placeholder="Risultato secondo dado..."></textarea>
+            </label>
         </div>
 
-        <div class="space corner jail" id="11" onclick="info_casella(this.id)">
-            <!-- <div class="just">Just</div> -->
-            <div class="drawing">
+        <div class="dadi-text">
+            <label>
+                <textarea readonly id="somma" placeholder="Somma risultato..."></textarea>
+            </label>
+        </div>
+    </div>
+
+    <div class="dadi">
+        <h3 style="text-align: center">I TUOI SOLDATI</h3>
+        <div class="dadi-text">
+            <label for="soldati">
+                <textarea readonly id="soldati">4250</textarea>
+            </label>
+        </div>
+        <div class="dadi-text">
+            <p style="font-size: 14px;">I soldati sono la tua fonte di potere, utilizzali per proseguire nel gioco!</p>
+        </div>
+    </div>
+
+    <div class="dadi">
+        <h3 style="text-align: center"> RESET GIOCO</h3>
+        <button id="reset" onclick="reset_gioco()"> Reset</button>
+        <div class="dadi-text">
+            <p>Premi qui per riavviare il gioco da capo!</p>
+        </div>
+    </div>
+
+    <div class="dadi">
+        <h3 style="text-align: center"> IL TUO TURNO</h3>
+        <div class="dadi-text">
+            <label for="turno">
+                <textarea readonly id="turno" style="width: 260px">1</textarea>
+            </label>
+            <p> Questo e' il tuo turno.</p>
+        </div>
+    </div>
+
+    <div class="table">
+        <div class="board">
+            <div class="center">
+                <div class="community-chest-deck">
+                    <h2 class="label">Community Chest</h2>
+                    <div class="deck"></div>
+                </div>
+                <h1 class="title">COLOMBOPOLY</h1>
+                <div class="chance-deck">
+                    <h2 class="label">Chance</h2>
+                    <div class="deck"></div>
+                </div>
+            </div>
+
+            <div class="space corner go" id="1" onclick="info_casella(this.id)">
                 <div class="container">
-                    <div class="name">In</div>
-                    <div class="window">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <i class="person fa fa-frown-o"></i>
+                    <div class="instructions">Ricevi 200 Soldati</div>
+                    <div class="go-word">Via</div>
+                </div>
+                <div class="arrow fa fa-long-arrow-left"></div>
+            </div>
+
+            <div class="row horizontal-row bottom-row">
+                <div class="space property" onclick="info_casella(this.id)" id="10">
+                    <div class="container">
+                        <div class="color-bar light-blue"></div>
+                        <div class="name" id="p-10">Connecticut Avenue</div>
+                        <div class="price">PRICE $120</div>
                     </div>
-                    <div class="name" id="p-11">Jail</div>
+                </div>
+                <div class="space property" id="9" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar light-blue"></div>
+                        <div class="name" id="p-9">Vermont Avenue</div>
+                        <div class="price">Prezzo $100</div>
+                    </div>
+                </div>
+                <div class="space chance" id="8" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-8">Chance</div>
+                        <i class="drawing fa fa-question"></i>
+                    </div>
+                </div>
+                <div class="space property" id="7" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar light-blue"></div>
+                        <div class="name" id="p-7">Oriental Avenue</div>
+                        <div class="price">Prezzo $100</div>
+                    </div>
+                </div>
+                <div class="space railroad" id="6" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-6">Reading Railroad</div>
+                        <i class="drawing fa fa-subway"></i>
+                        <div class="price">Prezzo $200</div>
+                    </div>
+                </div>
+                <div class="space fee income-tax" id="5" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-5">Income Tax</div>
+                        <div class="diamond"></div>
+                        <div class="instructions">Pay 10%<br>or<br>$200</div>
+                    </div>
+                </div>
+                <div class="space property" id="4" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar dark-purple"></div>
+                        <div class="name" id="p-4">Baltic Avenue</div>
+                        <div class="price">Prezzo $50</div>
+                    </div>
+                </div>
+                <div class="space community-chest" id="3" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-3">Community Chest</div>
+                        <i class="drawing fa fa-cube"></i>
+                        <div class="instructions">Follow instructions on top card</div>
+                    </div>
+                </div>
+                <div class="space property" id="2" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar dark-purple"></div>
+                        <div class="name three-line-name" id="p-2"> Mario Avenue</div>
+                        <div class="price">Prezzo $50</div>
+                    </div>
                 </div>
             </div>
-            <div class="visiting">Visiting</div>
-        </div>
 
-        <div class="row vertical-row left-row">
-            <div class="space property" id="20" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar orange"></div>
-                    <div class="name" id="p-20">New York Avenue</div>
-                    <div class="price">Prezzo $200</div>
+            <div class="space corner jail" id="11" onclick="info_casella(this.id)">
+                <!-- <div class="just">Just</div> -->
+                <div class="drawing">
+                    <div class="container">
+                        <div class="name">In</div>
+                        <div class="window">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <i class="person fa fa-frown-o"></i>
+                        </div>
+                        <div class="name" id="p-11">Jail</div>
+                    </div>
                 </div>
+                <div class="visiting">Visiting</div>
             </div>
-            <div class="space property" id="19" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar orange"></div>
-                    <div class="name" id="p-19">Tennessee Avenue</div>
-                    <div class="price">Prezzo $180</div>
-                </div>
-            </div>
-            <div class="space community-chest" id="18" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-18">Community Chest</div>
-                    <i class="drawing fa fa-cube"></i>
-                    <div class="instructions">Follow instructions on top card</div>
-                </div>
-            </div>
-            <div class="space property" id="17" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar orange"></div>
-                    <div class="name" id="p-17">St. James Avenue</div>
-                    <div class="price">Prezzo $180</div>
-                </div>
-            </div>
-            <div class="space railroad" id="16" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name long-name" id="p-16">Pennsylvania Railroad</div>
-                    <i class="drawing fa fa-subway"></i>
-                    <div class="price">Prezzo $200</div>
-                </div>
-            </div>
-            <div class="space property" id="15" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar purple"></div>
-                    <div class="name" id="p-15">Virginia Avenue</div>
-                    <div class="price">Prezzo $160</div>
-                </div>
-            </div>
-            <div class="space property" id="14" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar purple"></div>
-                    <div class="name" id="p-14">States Avenue</div>
-                    <div class="price">Prezzo $140</div>
-                </div>
-            </div>
-            <div class="space utility electric-company" id="13" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-13">Electric Company</div>
-                    <i class="drawing fa fa-lightbulb-o"></i>
-                    <div class="price">Prezzo $150</div>
-                </div>
-            </div>
-            <div class="space property" id="12" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar purple"></div>
-                    <div class="name" id="p-12">St. Charles Place</div>
-                    <div class="price">Prezzo $140</div>
-                </div>
-            </div>
-        </div>
 
-        <div class="space corner free-parking" id="21" onclick="info_casella(this.id)">
-            <div class="container">
-                <div class="name">Free</div>
-                <i class="drawing fa fa-car"></i>
-                <div class="name">Parking</div>
+            <div class="row vertical-row left-row">
+                <div class="space property" id="20" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar orange"></div>
+                        <div class="name" id="p-20">New York Avenue</div>
+                        <div class="price">Prezzo $200</div>
+                    </div>
+                </div>
+                <div class="space property" id="19" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar orange"></div>
+                        <div class="name" id="p-19">Tennessee Avenue</div>
+                        <div class="price">Prezzo $180</div>
+                    </div>
+                </div>
+                <div class="space community-chest" id="18" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-18">Community Chest</div>
+                        <i class="drawing fa fa-cube"></i>
+                        <div class="instructions">Follow instructions on top card</div>
+                    </div>
+                </div>
+                <div class="space property" id="17" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar orange"></div>
+                        <div class="name" id="p-17">St. James Avenue</div>
+                        <div class="price">Prezzo $180</div>
+                    </div>
+                </div>
+                <div class="space railroad" id="16" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name long-name" id="p-16">Pennsylvania Railroad</div>
+                        <i class="drawing fa fa-subway"></i>
+                        <div class="price">Prezzo $200</div>
+                    </div>
+                </div>
+                <div class="space property" id="15" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar purple"></div>
+                        <div class="name" id="p-15">Virginia Avenue</div>
+                        <div class="price">Prezzo $160</div>
+                    </div>
+                </div>
+                <div class="space property" id="14" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar purple"></div>
+                        <div class="name" id="p-14">States Avenue</div>
+                        <div class="price">Prezzo $140</div>
+                    </div>
+                </div>
+                <div class="space utility electric-company" id="13" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-13">Electric Company</div>
+                        <i class="drawing fa fa-lightbulb-o"></i>
+                        <div class="price">Prezzo $150</div>
+                    </div>
+                </div>
+                <div class="space property" id="12" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar purple"></div>
+                        <div class="name" id="p-12">St. Charles Place</div>
+                        <div class="price">Prezzo $140</div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="row horizontal-row top-row">
-            <div class="space property" id="22" onclick="info_casella(this.id)">
+            <div class="space corner free-parking" id="21" onclick="info_casella(this.id)">
                 <div class="container">
-                    <div class="color-bar red"></div>
-                    <div class="name" id="p-22">Kentucky Avenue</div>
-                    <div class="price">Prezzo $220</div>
+                    <div class="name">Free</div>
+                    <i class="drawing fa fa-car"></i>
+                    <div class="name">Parking</div>
                 </div>
             </div>
-            <div class="space chance" id="23" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-23">Chance</div>
-                    <i class="drawing fa fa-question blue"></i>
-                </div>
-            </div>
-            <div class="space property" id="24" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar red"></div>
-                    <div class="name" id="p-24">Indiana Avenue</div>
-                    <div class="price">Prezzo $220</div>
-                </div>
-            </div>
-            <div class="space property" id="25" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar red"></div>
-                    <div class="name" id="p-25">Illinois Avenue</div>
-                    <div class="price">Prezzo $200</div>
-                </div>
-            </div>
-            <div class="space railroad" id="26" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-26">B & O Railroad</div>
-                    <i class="drawing fa fa-subway"></i>
-                    <div class="price">Prezzo $200</div>
-                </div>
-            </div>
-            <div class="space property" id="27" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar yellow"></div>
-                    <div class="name" id="p-27">Atlantic Avenue</div>
-                    <div class="price">Prezzo $260</div>
-                </div>
-            </div>
-            <div class="space property" id="28" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar yellow"></div>
-                    <div class="name" id="p-28">Ventnor Avenue</div>
-                    <div class="price">Prezzo $260</div>
-                </div>
-            </div>
-            <div class="space utility waterworks" id="29" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-29">Waterworks</div>
-                    <i class="drawing fa fa-tint"></i>
-                    <div class="price">Prezzo $120</div>
-                </div>
-            </div>
-            <div class="space property" id="30" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar yellow"></div>
-                    <div class="name" id="p-30">Marvin Gardens</div>
-                    <div class="price">Prezzo $280</div>
-                </div>
-            </div>
-        </div>
 
-        <div class="space corner go-to-jail" id="31" onclick="info_casella(this.id)">
-            <div class="container">
-                <i class="drawing fa fa-gavel"></i>
-                <div class="name" id="p-31">Jail</div>
+            <div class="row horizontal-row top-row">
+                <div class="space property" id="22" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar red"></div>
+                        <div class="name" id="p-22">Kentucky Avenue</div>
+                        <div class="price">Prezzo $220</div>
+                    </div>
+                </div>
+                <div class="space chance" id="23" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-23">Chance</div>
+                        <i class="drawing fa fa-question blue"></i>
+                    </div>
+                </div>
+                <div class="space property" id="24" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar red"></div>
+                        <div class="name" id="p-24">Indiana Avenue</div>
+                        <div class="price">Prezzo $220</div>
+                    </div>
+                </div>
+                <div class="space property" id="25" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar red"></div>
+                        <div class="name" id="p-25">Illinois Avenue</div>
+                        <div class="price">Prezzo $200</div>
+                    </div>
+                </div>
+                <div class="space railroad" id="26" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-26">B & O Railroad</div>
+                        <i class="drawing fa fa-subway"></i>
+                        <div class="price">Prezzo $200</div>
+                    </div>
+                </div>
+                <div class="space property" id="27" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar yellow"></div>
+                        <div class="name" id="p-27">Atlantic Avenue</div>
+                        <div class="price">Prezzo $260</div>
+                    </div>
+                </div>
+                <div class="space property" id="28" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar yellow"></div>
+                        <div class="name" id="p-28">Ventnor Avenue</div>
+                        <div class="price">Prezzo $260</div>
+                    </div>
+                </div>
+                <div class="space utility waterworks" id="29" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-29">Waterworks</div>
+                        <i class="drawing fa fa-tint"></i>
+                        <div class="price">Prezzo $120</div>
+                    </div>
+                </div>
+                <div class="space property" id="30" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar yellow"></div>
+                        <div class="name" id="p-30">Marvin Gardens</div>
+                        <div class="price">Prezzo $280</div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="row vertical-row right-row">
-            <div class="space property" id="32" onclick="info_casella(this.id)">
+            <div class="space corner go-to-jail" id="31" onclick="info_casella(this.id)">
                 <div class="container">
-                    <div class="color-bar green"></div>
-                    <div class="name" id="p-32">Pacific Avenue</div>
-                    <div class="price">Prezzo $300</div>
+                    <i class="drawing fa fa-gavel"></i>
+                    <div class="name" id="p-31">Jail</div>
                 </div>
             </div>
-            <div class="space property" id="33" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar green"></div>
-                    <div class="name three-line-name" id="p-33">North Carolina Avenue</div>
-                    <div class="price">Prezzo $300</div>
+
+            <div class="row vertical-row right-row">
+                <div class="space property" id="32" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar green"></div>
+                        <div class="name" id="p-32">Pacific Avenue</div>
+                        <div class="price">Prezzo $300</div>
+                    </div>
                 </div>
-            </div>
-            <div class="space community-chest" id="34" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name">Community Chest</div>
-                    <i class="drawing fa fa-cube"></i>
-                    <div class="instructions">Follow instructions on top card</div>
+                <div class="space property" id="33" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar green"></div>
+                        <div class="name three-line-name" id="p-33">North Carolina Avenue</div>
+                        <div class="price">Prezzo $300</div>
+                    </div>
                 </div>
-            </div>
-            <div class="space property" id="35" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar green"></div>
-                    <div class="name long-name" id="p-35">Pennsylvania Avenue</div>
-                    <div class="price">Prezzo $320</div>
+                <div class="space community-chest" id="34" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name">Community Chest</div>
+                        <i class="drawing fa fa-cube"></i>
+                        <div class="instructions">Follow instructions on top card</div>
+                    </div>
                 </div>
-            </div>
-            <div class="space railroad" id="36" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-36">Short Line</div>
-                    <i class="drawing fa fa-subway"></i>
-                    <div class="price">Prezzo $200</div>
+                <div class="space property" id="35" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar green"></div>
+                        <div class="name long-name" id="p-35">Pennsylvania Avenue</div>
+                        <div class="price">Prezzo $320</div>
+                    </div>
                 </div>
-            </div>
-            <div class="space chance" id="37" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-37">Chance</div>
-                    <i class="drawing fa fa-question"></i>
+                <div class="space railroad" id="36" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-36">Short Line</div>
+                        <i class="drawing fa fa-subway"></i>
+                        <div class="price">Prezzo $200</div>
+                    </div>
                 </div>
-            </div>
-            <div class="space property" id="38" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar dark-blue"></div>
-                    <div class="name" id="p-38">Park Place</div>
-                    <div class="price">Prezzo $350</div>
+                <div class="space chance" id="37" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-37">Chance</div>
+                        <i class="drawing fa fa-question"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="space fee luxury-tax" id="39" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="name" id="p-39">Luxury Tax</div>
-                    <div class="drawing fa fa-diamond"></div>
-                    <div class="instructions">Pay $75.00</div>
+                <div class="space property" id="38" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar dark-blue"></div>
+                        <div class="name" id="p-38">Park Place</div>
+                        <div class="price">Prezzo $350</div>
+                    </div>
                 </div>
-            </div>
-            <div class="space property" id="40" onclick="info_casella(this.id)">
-                <div class="container">
-                    <div class="color-bar dark-blue"></div>
-                    <div class="name" id="p-40">Boardwalk</div>
-                    <div class="price">Prezzo $400</div>
+                <div class="space fee luxury-tax" id="39" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="name" id="p-39">Luxury Tax</div>
+                        <div class="drawing fa fa-diamond"></div>
+                        <div class="instructions">Pay $75.00</div>
+                    </div>
+                </div>
+                <div class="space property" id="40" onclick="info_casella(this.id)">
+                    <div class="container">
+                        <div class="color-bar dark-blue"></div>
+                        <div class="name" id="p-40">Boardwalk</div>
+                        <div class="price">Prezzo $400</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>
