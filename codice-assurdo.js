@@ -84,6 +84,49 @@ const tasse_json = {
     "40": 400
 }
 
+const desc_json = {
+    "1": "12 Ottobre 1492 Prima tappa del primo fra 4 dei viaggi che Colombo condusse verso il “Nuovo Mondo”. San Salvadoruna delle isole, presenti nella baia di Fernandez. Colombo e la sua ciurma furono accolti con grande cortesia e condiscendenza dai Taino, i nativi di etnia Arawak, abitanti dell'isola.",
+    "2": "Ripreso il mare, con sei indigeni che svolsero attività di interpreti e di guide, la sua spedizione esplorò prima alcune isole prive di fiumi, la prima delle quali fu Santa Maria De La Concepción",
+    "3": "Seconda delle isole prive di fiumi esplorate grazie all’aiuto di due indigeni",
+    "4": "La sera del 27 ottobre 1492 le caravelle di Colombo arrivano alla fonda della baia di Bariay a Cuba, nell'attuale provincia di Holguín.",
+    "5": "Cercando l'oro Pinzon (comandante della Pinta) ricevette informazioni su una fantomatica isola chiamata Babeque e decise, dopo qualche tentativo con Colombo, di partire da solo con la Pinta; per quasi due mesi scomparve, mentre Colombo giunse nella baia di Baracoa.",
+    "6": "Colombo esplorò la costa settentrionale di Haiti, raggiunta il 5 dicembre 1492, e la chiamò Hispaniola; approdò la sera del 6 dicembre chiamando il luogo, Puerto San Nicola.",
+    "7": "Cercò l'oro giungendo in quella che chiamò Bahia de los Mosquitos, nome che sopravvisse nei secoli.",
+    "8": "Approdò su un isola a forma di tartaruga che il navigatore chiamò poi Tortuga",
+    "9": "Prima del ritorno decisero di trarre in secco le due caravelle, a Capo Samanà, per opere di manutenzione.",
+    "10": "Approdarono a Gomera come nel primo viaggio e ne ripartirono il 13 ottobre 1493.",
+    "11": "Il 3 novembre 1493 la flotta raggiunse Dominica, chiamata in tal modo perché la raggiunse nel giorno di domenica.",
+    "12": "Veleggiò tra le piccole e le grandi Antille",
+    "13": "Giunse poi all’isola di Santa Cruz, dove perse uno dei suoi uomini, il primo morto nei viaggi.",
+    "14": "ll 19 novembre 1493 arrivarono a Porto Rico",
+    "15": "Il 23 novembre 1493 giunsero nella baia di Samanà.",
+    "16": "Il 30 aprile 1494 giunto a Cuba, raggiunse Puerto Grande",
+    "17": "In  seguito a Puerto Grande, Colombo reggiunse la baia di Guantánamo",
+    "18": "",
+    "19": "",
+    "20": "",
+    "21": "",
+    "22": "",
+    "23": "",
+    "24": "",
+    "25": "",
+    "26": "",
+    "27": "",
+    "28": "",
+    "29": "",
+    "30": "",
+    "31": "",
+    "32": "",
+    "33": "",
+    "34": "",
+    "35": "",
+    "36": "",
+    "37": "",
+    "38": "",
+    "39": "",
+    "40": " "
+}
+
 function imposta_dadi() {
     // waluigi
     const a = 1 + Math.floor(Math.random() * 6);
@@ -155,7 +198,12 @@ fotti_soldati = (pos) => {
 }
 
 function info_casella(id) {
-    alert(`hai cliccato la ${id} casella.`)
+    let msg = desc_json[id.toString()];
+    if (msg == "") {
+        // mancante
+    } else {
+        alert(msg);
+    }
 }
 
 function colora_casella(num, abs) {
