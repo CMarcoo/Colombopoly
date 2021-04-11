@@ -85,25 +85,25 @@ const tasse_json = {
 }
 
 const desc_json = {
-    "1": "12 Ottobre 1492 Prima tappa del primo fra 4 dei viaggi che Colombo condusse verso il “Nuovo Mondo”. San Salvadoruna delle isole, presenti nella baia di Fernandez. Colombo e la sua ciurma furono accolti con grande cortesia e condiscendenza dai Taino, i nativi di etnia Arawak, abitanti dell'isola.",
-    "2": "Ripreso il mare, con sei indigeni che svolsero attività di interpreti e di guide, la sua spedizione esplorò prima alcune isole prive di fiumi, la prima delle quali fu Santa Maria De La Concepción",
-    "3": "Seconda delle isole prive di fiumi esplorate grazie all’aiuto di due indigeni",
-    "4": "La sera del 27 ottobre 1492 le caravelle di Colombo arrivano alla fonda della baia di Bariay a Cuba, nell'attuale provincia di Holguín.",
-    "5": "Cercando l'oro Pinzon (comandante della Pinta) ricevette informazioni su una fantomatica isola chiamata Babeque e decise, dopo qualche tentativo con Colombo, di partire da solo con la Pinta; per quasi due mesi scomparve, mentre Colombo giunse nella baia di Baracoa.",
-    "6": "Colombo esplorò la costa settentrionale di Haiti, raggiunta il 5 dicembre 1492, e la chiamò Hispaniola; approdò la sera del 6 dicembre chiamando il luogo, Puerto San Nicola.",
-    "7": "Cercò l'oro giungendo in quella che chiamò Bahia de los Mosquitos, nome che sopravvisse nei secoli.",
-    "8": "Approdò su un isola a forma di tartaruga che il navigatore chiamò poi Tortuga",
-    "9": "Prima del ritorno decisero di trarre in secco le due caravelle, a Capo Samanà, per opere di manutenzione.",
-    "10": "Approdarono a Gomera come nel primo viaggio e ne ripartirono il 13 ottobre 1493.",
-    "11": "Il 3 novembre 1493 la flotta raggiunse Dominica, chiamata in tal modo perché la raggiunse nel giorno di domenica.",
-    "12": "Veleggiò tra le piccole e le grandi Antille",
-    "13": "Giunse poi all’isola di Santa Cruz, dove perse uno dei suoi uomini, il primo morto nei viaggi.",
-    "14": "ll 19 novembre 1493 arrivarono a Porto Rico",
-    "15": "Il 23 novembre 1493 giunsero nella baia di Samanà.",
-    "16": "Il 30 aprile 1494 giunto a Cuba, raggiunse Puerto Grande",
-    "17": "In  seguito a Puerto Grande, Colombo reggiunse la baia di Guantánamo",
-    "18": "",
-    "19": "",
+    "1": "Punto Di Partenza.",
+    "2": "12 Ottobre 1492 Prima tappa del primo fra 4 dei viaggi che Colombo condusse verso il “Nuovo Mondo”. San Salvador una delle isole, presenti nella baia di Fernandez. Colombo e la sua ciurma furono accolti con grande cortesia e condiscendenza dai Taino, i nativi di etnia Arawak, abitanti dell'isola.",
+    "3": "Ripreso il mare, con sei indigeni che svolsero attività di interpreti e di guide, la sua spedizione esplorò prima alcune isole prive di fiumi, la prima delle quali fu Santa Maria De La Concepción",
+    "4": "Seconda delle isole prive di fiumi esplorate grazie all’aiuto di due indigeni",
+    "5": "La sera del 27 ottobre 1492 le caravelle di Colombo arrivano alla fonda della baia di Bariay a Cuba, nell'attuale provincia di Holguín.",
+    "6": "Cercando l'oro Pinzon (comandante della Pinta) ricevette informazioni su una fantomatica isola chiamata Babeque e decise, dopo qualche tentativo con Colombo, di partire da solo con la Pinta; per quasi due mesi scomparve, mentre Colombo giunse nella baia di Baracoa.",
+    "7": "Colombo esplorò la costa settentrionale di Haiti, raggiunta il 5 dicembre 1492, e la chiamò Hispaniola; approdò la sera del 6 dicembre chiamando il luogo, Puerto San Nicola.",
+    "8": "Cercò l'oro giungendo in quella che chiamò Bahia de los Mosquitos, nome che sopravvisse nei secoli.",
+    "9": "Approdò su un isola a forma di tartaruga che il navigatore chiamò poi Tortuga",
+    "10": "Prima del ritorno decisero di trarre in secco le due caravelle, a Capo Samanà, per opere di manutenzione.",
+    "11": 'Questa è la prigione.',
+    "12": "Approdarono a Gomera come nel primo viaggio e ne ripartirono il 13 ottobre 1493.",
+    "13": "Il 3 novembre 1493 la flotta raggiunse Dominica, chiamata in tal modo perché la raggiunse nel giorno di domenica.",
+    "14": "Veleggiò tra le piccole e le grandi Antille",
+    "15": "Giunse poi all’isola di Santa Cruz, dove perse uno dei suoi uomini, il primo morto nei viaggi.",
+    "16": "ll 19 novembre 1493 arrivarono a Porto Rico",
+    "17": "Il 23 novembre 1493 giunsero nella baia di Samanà.",
+    "18": "Il 30 aprile 1494 giunto a Cuba, raggiunse Puerto Grande",
+    "19": "In  seguito a Puerto Grande, Colombo reggiunse la baia di Guantánamo",
     "20": "",
     "21": "",
     "22": "",
@@ -127,6 +127,8 @@ const desc_json = {
     "40": " "
 }
 
+const caselle_imprevisti = [3, 18, 34];
+
 function imposta_dadi() {
     // waluigi
     const a = 1 + Math.floor(Math.random() * 6);
@@ -147,7 +149,15 @@ function imposta_dadi() {
 
     if (!tira_di_nuovo) {
         incrementa_turno();
-    }4
+        togli_soldati_turno();
+    }
+}
+
+togli_soldati_turno() = () => {
+    let el = document.getElementById('soldati');
+    let num = parseInt(el.innerHTML);
+    num -= 200;
+    el.innerHTML = num;
 }
 
 incrementa_turno = () => {
@@ -221,6 +231,24 @@ function colora_casella(num, abs) {
 
 }
 
+function imprevisti() {
+    if (caselle_imprevisti.includes(parseInt(localStorage.getItem('casella')))) {
+        let rand = Math.random() < 0.50;
+        let soldati;
+        if (rand) {
+            soldati = +300;
+            alert('Hai vinto 300 SOLDATI con un imprevisto!');
+        } else {
+            soltati = -300;
+            alert('Hai perso 300 SOLDATI con un imprevisto!');
+        }
+        let el = document.getElementById('soldati');
+        let num = parseInt(el.innerHTML);
+        num = num + soldati;
+        el.innerHTML = num;
+    } else { }
+}
+
 function muovi_pedina(pos) {
     let casella = parseInt(window.localStorage.getItem('casella'));
     if (casella + pos > 40) {
@@ -230,6 +258,7 @@ function muovi_pedina(pos) {
     }
 
     alert(`La tua posizione e\': ${window.localStorage.getItem('casella')}`);
+
     fotti_soldati(parseInt(window.localStorage.getItem('casella')))
 }
 
