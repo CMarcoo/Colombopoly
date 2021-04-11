@@ -15,6 +15,11 @@ body {
     text-transform: uppercase;
 }
 
+.menu-container {
+    width: 98%;
+    height: 20%;
+}
+
 .dadi {
     background-color: lightgray;
     border-radius: 10px;
@@ -24,14 +29,20 @@ body {
     position: relative;
     width: 300px;
     height: 275px;
-    left: 25px;
-    top: 500px;
+    float: right;
+    /*left: 25px;*/
+    /*top: 500px;*/
     font-size: 25px;
+    margin-left: 3%;
+    padding-right: 25px;
+    text-align: center;
     font-family: "Comic Sans MS", serif;
 }
 
 .dadi-text {
+    float: right;
     position: relative;
+    margin: auto;
     right: -15px;
     top: 15px;
 }

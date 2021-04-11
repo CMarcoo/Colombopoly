@@ -1,9 +1,8 @@
 <html lang="EN" xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <link rel="icon" 
-     type="image/png" 
-     href="https://e7.pngegg.com/pngimages/269/407/png-clipart-earth-globe-world-logo-earth-globe-logo.png">
+    <link rel="icon" type="image/png"
+        href="https://e7.pngegg.com/pngimages/269/407/png-clipart-earth-globe-world-logo-earth-globe-logo.png">
     <!-- Primary Meta Tags -->
     <title>Colombopoly</title>
     <meta name="title" content="Colombopoly">
@@ -14,16 +13,14 @@
     <meta property="og:url" content="https://thevipershow.imgur.com/all">
     <meta property="og:title" content="Colombopoly">
     <meta property="og:description" content="Il gioco dell'anno.">
-    <meta property="og:image"
-        content="https://i.imgur.com/bwN674Q.jpg">
+    <meta property="og:image" content="https://i.imgur.com/bwN674Q.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://metatags.io/">
     <meta property="twitter:title" content="Colombopoly">
     <meta property="twitter:description" content="Il gioco dell'anno.">
-    <meta property="twitter:image"
-        content="https://i.imgur.com/bwN674Q.jpg">
+    <meta property="twitter:image" content="https://i.imgur.com/bwN674Q.jpg">
 
     <meta charset="UTF-8">
     <script type="text/javascript" src="codice-assurdo.js"></script>
@@ -33,59 +30,64 @@
 
 <body>
 
-    <div class="dadi">
-        <h3 style="text-align: center">TIRA DUE DADI</h3>
-        <div class="dadi-text">
-            <button onclick='imposta_dadi()'>Tira Dadi</button>
+    <div class="menu-container">
+
+        <div class="dadi">
+            <h3 style="text-align: center">TIRA DUE DADI</h3>
+            <div class="dadi-text">
+                <button onclick='imposta_dadi()'>Tira Dadi</button>
+            </div>
+
+            <div class="dadi-text">
+                <label for="dado-1">
+                    <textarea readonly id="dado-1" placeholder="Risultato primo dado..."></textarea>
+                </label>
+            </div>
+
+            <div class="dadi-text">
+                <label for="dado-2">
+                    <textarea readonly id="dado-2" placeholder="Risultato secondo dado..."></textarea>
+                </label>
+            </div>
+
+            <div class="dadi-text">
+                <label>
+                    <textarea readonly id="somma" placeholder="Somma risultato..."></textarea>
+                </label>
+            </div>
         </div>
 
-        <div class="dadi-text">
-            <label for="dado-1">
-                <textarea readonly id="dado-1" placeholder="Risultato primo dado..."></textarea>
-            </label>
+        <div class="dadi">
+            <h3 style="text-align: center">I TUOI SOLDATI</h3>
+            <div class="dadi-text">
+                <label for="soldati">
+                    <textarea readonly id="soldati">1550</textarea>
+                </label>
+            </div>
+            <div class="dadi-text">
+                <p style="font-size: 14px;">I soldati sono la tua fonte di potere, utilizzali per proseguire nel gioco!
+                </p>
+            </div>
         </div>
 
-        <div class="dadi-text">
-            <label for="dado-2">
-                <textarea readonly id="dado-2" placeholder="Risultato secondo dado..."></textarea>
-            </label>
+        <div class="dadi">
+            <h3 style="text-align: center"> RESET GIOCO</h3>
+            <button id="reset" onclick="reset_gioco()"> Reset</button>
+            <div class="dadi-text">
+                <p>Premi qui per riavviare il gioco da capo!</p>
+            </div>
         </div>
 
-        <div class="dadi-text">
-            <label>
-                <textarea readonly id="somma" placeholder="Somma risultato..."></textarea>
-            </label>
+        <div class="dadi">
+            <h3 style="text-align: center"> IL TUO TURNO</h3>
+            <div class="dadi-text">
+                <label for="turno">
+                    <textarea readonly id="turno" style="width: 260px">1</textarea>
+                </label>
+                <p> Questo e' il tuo turno.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="dadi">
-        <h3 style="text-align: center">I TUOI SOLDATI</h3>
-        <div class="dadi-text">
-            <label for="soldati">
-                <textarea readonly id="soldati">1550</textarea>
-            </label>
-        </div>
-        <div class="dadi-text">
-            <p style="font-size: 14px;">I soldati sono la tua fonte di potere, utilizzali per proseguire nel gioco!</p>
-        </div>
-    </div>
-
-    <div class="dadi">
-        <h3 style="text-align: center"> RESET GIOCO</h3>
-        <button id="reset" onclick="reset_gioco()"> Reset</button>
-        <div class="dadi-text">
-            <p>Premi qui per riavviare il gioco da capo!</p>
-        </div>
-    </div>
-
-    <div class="dadi">
-        <h3 style="text-align: center"> IL TUO TURNO</h3>
-        <div class="dadi-text">
-            <label for="turno">
-                <textarea readonly id="turno" style="width: 260px">1</textarea>
-            </label>
-            <p> Questo e' il tuo turno.</p>
-        </div>
     </div>
 
     <div class="table">
