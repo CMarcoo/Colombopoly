@@ -124,7 +124,7 @@ const desc_json = {
     "37": "",
     "38": "",
     "39": "",
-    "40": " "
+    "40": ""
 }
 
 const caselle_imprevisti = [3, 18, 34];
