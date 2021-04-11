@@ -153,7 +153,7 @@ function imposta_dadi() {
     }
 }
 
-togli_soldati_turno() = () => {
+togli_soldati_turno = () => {
     let el = document.getElementById('soldati');
     let num = parseInt(el.innerHTML);
     num -= 200;
