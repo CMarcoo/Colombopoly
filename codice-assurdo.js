@@ -121,7 +121,7 @@ const desc_json = {
     "34": "Tra il luglio e l'ottobre del 1502 Colombo costeggiò l'Honduras, il Nicaragua e la Costa Rica",
     "35": "Tra il luglio e l'ottobre del 1502 Colombo costeggiò l'Honduras, il Nicaragua e la Costa Rica",
     "36": "Tra il luglio e l'ottobre del 1502 Colombo costeggiò l'Honduras, il Nicaragua e la Costa Rica",
-    "37": " Fra piogge continue di giorno, in 28 giorni viaggiarono per 170 miglia. Il 5 ottobre 1502, giunse in quello che gli indigeni chiamavano Ciguara, dove sarebbe stato scavato il canale di Panama, e saputo che a poche miglia vi era un altro mare abbandonò l'idea di raggiungerlo. Il 16 ottobre 1502 giunse a Panama, dove si fermò per l'inverno.",
+    "37": "Fra piogge continue di giorno, in 28 giorni viaggiarono per 170 miglia. Il 5 ottobre 1502, giunse in quello che gli indigeni chiamavano Ciguara, dove sarebbe stato scavato il canale di Panama, e saputo che a poche miglia vi era un altro mare abbandonò l'idea di raggiungerlo. Il 16 ottobre 1502 giunse a Panama, dove si fermò per l'inverno.",
     "38": "Il 16 aprile 1503 Colombo scoprì le Isole Cayman e le battezzò Las Tortugas, grazie alle numerose tartarughe marine presenti.",
     "39": " Dopo tre giorni di navigazione giunsero a Navassa",
     "40": " A settembre del 1503 furono a Santo Domingo e con questa ultima tappa si concluse l’ultimo dei 4 viaggi di uno dei più grandi esploratori della storia."
